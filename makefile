@@ -1,7 +1,7 @@
 #Place the names of all your tracks here (as RRA filenames)
 
-RRA = chord.rra
-SRRA = s-chord.rra
+RRA = chord.rra drums.rra
+SRRA = stereo.rra
 INCLUDE=/usr/local/include/songlib/
 LIB=/usr/local/lib/
 
