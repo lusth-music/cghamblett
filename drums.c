@@ -12,6 +12,11 @@
 char *PROGRAM_NAME = "drums";
 char *PROGRAM_VERSION = "0.01";
 
+void intro(int);
+void verse(int);
+void bridge(int);
+void chorus(int);
+
 int
 main()
     {
@@ -27,10 +32,30 @@ main()
     setTime(4,4);
     setStride(0.05);
     setSustain(0.99995);
-    setAmplitude(0.1);
+    setAmplitude(0.187);
 
     openOutput("drums.rra",0,0);
 
+    intro (spot);
+    verse (spot);
+    chorus(spot);
+    verse (spot);
+    chorus(spot);
+    bridge(spot);
+    verse (spot);
+    chorus(spot);
+    verse (spot);
+    chorus(spot);
+
+    closeOutput();
+
+    return 0;
+}
+
+
+void intro(int spot)
+{
+    
     spot = getLocation();
     //                    1-&-2-&-3-&-4-&-
     drumkitHHClosed (1,1,"x-x-x-----------",SX); setLocation(spot);
@@ -92,6 +117,7 @@ main()
     drumkitTom (1,1,     "----------------",SX); setLocation(spot);
     drumkitTomLo (1,1,   "----------------",SX);
 
+
     spot = getLocation();
     //                    1-&-2-&-3-&-4-&-
     drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
@@ -102,55 +128,198 @@ main()
     drumkitTomHi (1,1,   "-------------x--",SX); setLocation(spot);
     drumkitTom (1,1,     "--------------x-",SX); setLocation(spot);
     drumkitTomLo (1,1,   "---------------x",SX); 
+}
 
-    spot = getLocation();
-    //                    1-&-2-&-3-&-4-&-
-    drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
-    drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
-    drumkitHHClosed (1,1,"xxxxxxxx-xx-xx-x",SX); setLocation(spot);
-    drumkitKick (1,1,    "x-x---x--x--x---",SX); setLocation(spot);
-    drumkitSnare (1,1,   "--------x--x--x-",SX); setLocation(spot);
-    drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
-    drumkitTom (1,1,     "----------------",SX); setLocation(spot);
-    drumkitTomLo (1,1,   "----------------",SX);
+void verse(int spot)
+{
+    int i;
+    for (i = 0; i < 8; i++)
+    {
 
+        if (i == 3) {
 
-    spot = getLocation();
-    //                    1-&-2-&-3-&-4-&-
-    drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
-    drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
-    drumkitHHClosed (1,1,"xxxxxxxx-xx-xx-x",SX); setLocation(spot);
-    drumkitKick (1,1,    "x-x---x--x--x---",SX); setLocation(spot);
-    drumkitSnare (1,1,   "--------x--x--x-",SX); setLocation(spot);
-    drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
-    drumkitTom (1,1,     "----------------",SX); setLocation(spot);
-    drumkitTomLo (1,1,   "----------------",SX);
+            spot = getLocation();
+            //                    1-&-2-&-3-&-4-&-
+            drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+            drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
+            drumkitHHClosed (1,1,"xxxxxxxx-xx-xx-x",SX); setLocation(spot);
+            drumkitKick (1,1,    "x-x---x---x---x-",SX); setLocation(spot);
+            drumkitSnare (1,1,   "--------xx--xx--",SX); setLocation(spot);
+            drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
+            drumkitTom (1,1,     "----------------",SX); setLocation(spot);
+            drumkitTomLo (1,1,   "----------------",SX);
 
-    spot = getLocation();
-    //                    1-&-2-&-3-&-4-&-
-    drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
-    drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
-    drumkitHHClosed (1,1,"xxxxxxxx-xx-xx-x",SX); setLocation(spot);
-    drumkitKick (1,1,    "x-x---x--x--x---",SX); setLocation(spot);
-    drumkitSnare (1,1,   "--------x--x--x-",SX); setLocation(spot);
-    drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
-    drumkitTom (1,1,     "----------------",SX); setLocation(spot);
-    drumkitTomLo (1,1,   "----------------",SX);
+        }
 
-    spot = getLocation();
-    //                    1-&-2-&-3-&-4-&-
-    drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
-    drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
-    drumkitHHClosed (1,1,"xxxxxxxx-xx-xx-x",SX); setLocation(spot);
-    drumkitKick (1,1,    "x-x---x--x--x---",SX); setLocation(spot);
-    drumkitSnare (1,1,   "--------x--x--x-",SX); setLocation(spot);
-    drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
-    drumkitTom (1,1,     "----------------",SX); setLocation(spot);
-    drumkitTomLo (1,1,   "----------------",SX);
+        else if (i == 7) {
 
+            spot = getLocation();
+            //                    1-&-2-&-3-&-4-&-
+            drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+            drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
+            drumkitHHClosed (1,1,"----------------",SX); setLocation(spot);
+            drumkitKick (1,1,    "x---x--x--x-----",SX); setLocation(spot);
+            drumkitSnare (1,1,   "--x-----x-------",SX); setLocation(spot);
+            drumkitTomHi (1,1,   "--x-----x--x----",SX); setLocation(spot);
+            drumkitTom (1,1,     "-----x------xx--",SX); setLocation(spot);
+            drumkitTomLo (1,1,   "------x-------xx",SX);
 
-    closeOutput();
+        }
 
-    return 0;
+        else {
+
+            spot = getLocation();
+            //                    1-&-2-&-3-&-4-&-
+            drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+            drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
+            drumkitHHClosed (1,1,"xxxxxxxx-xx-xx-x",SX); setLocation(spot);
+            drumkitKick (1,1,    "x-x---x--x--x---",SX); setLocation(spot);
+            drumkitSnare (1,1,   "--------x--x--x-",SX); setLocation(spot);
+            drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
+            drumkitTom (1,1,     "----------------",SX); setLocation(spot);
+            drumkitTomLo (1,1,   "----------------",SX);
+
+        }
     }
+}
+
+void chorus(int spot)
+{
+    int i;
+    for (i = 0; i < 2; i++) {
+
+        spot = getLocation();
+        //                    1-&-2-&-3-&-4-&-
+        drumkitCrash(1,1,    "x---------------",SX); setLocation(spot);
+        drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
+        drumkitHHClosed (1,1,"--x-x-x-x-x-x-x-",SX); setLocation(spot);
+        drumkitKick (1,1,    "x-x---x---------",SX); setLocation(spot);
+        drumkitSnare (1,1,   "--------x---x---",SX); setLocation(spot);
+        drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
+        drumkitTom (1,1,     "----------------",SX); setLocation(spot);
+        drumkitTomLo (1,1,   "----------------",SX);
+
+        spot = getLocation();
+        //                    1-&-2-&-3-&-4-&-
+        drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+        drumkitHHOpen (1,1,  "------------x---",SX); setLocation(spot);
+        drumkitHHClosed (1,1,"x-x-x-x-x-x---x-",SX); setLocation(spot);
+        drumkitKick (1,1,    "--x---x---x-x---",SX); setLocation(spot);
+        drumkitSnare (1,1,   "x-------x-------",SX); setLocation(spot);
+        drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
+        drumkitTom (1,1,     "----------------",SX); setLocation(spot);
+        drumkitTomLo (1,1,   "----------------",SX);
+
+        spot = getLocation();
+        //                    1-&-2-&-3-&-4-&-
+        drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+        drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
+        drumkitHHClosed (1,1,"x-x-x-x-x-x-x-x-",SX); setLocation(spot);
+        drumkitKick (1,1,    "x---x-x---------",SX); setLocation(spot);
+        drumkitSnare (1,1,   "--------x-x-x---",SX); setLocation(spot);
+        drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
+        drumkitTom (1,1,     "----------------",SX); setLocation(spot);
+        drumkitTomLo (1,1,   "----------------",SX);
+
+        if (i == 0) {
+
+            spot = getLocation();
+            //                    1-&-2-&-3-&-4-&-
+            drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+            drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
+            drumkitHHClosed (1,1,"x-x-x-x-x-------",SX); setLocation(spot);
+            drumkitKick (1,1,    "x-----x---------",SX); setLocation(spot);
+            drumkitSnare (1,1,   "--x-----x-------",SX); setLocation(spot);
+            drumkitTomHi (1,1,   "----------x-----",SX); setLocation(spot);
+            drumkitTom (1,1,     "-----------x----",SX); setLocation(spot);
+            drumkitTomLo (1,1,   "------------x-x-",SX);
+
+        }
+
+        else {
+
+            spot = getLocation();
+            //                    1-&-2-&-3-&-4-&-
+            drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+            drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
+            drumkitHHClosed (1,1,"----------------",SX); setLocation(spot);
+            drumkitKick (1,1,    "x---x---x-------",SX); setLocation(spot);
+            drumkitSnare (1,1,   "--x---x---x-x-x-",SX); setLocation(spot);
+            drumkitTomHi (1,1,   "--x-------------",SX); setLocation(spot);
+            drumkitTom (1,1,     "------x---------",SX); setLocation(spot);
+            drumkitTomLo (1,1,   "----------x-x-x-",SX);
+
+        }
+
+    }
+}
+
+void bridge(int spot) {
+
+    int i;
+    for(i = 0; i < 2; i++) {
+        spot = getLocation();
+        //                    1-&-2-&-3-&-4-&-
+        drumkitCrash(1,1,    "x---------------",SX); setLocation(spot);
+        drumkitHHOpen (1,1,  "----x-------x---",SX); setLocation(spot);
+        drumkitHHClosed (1,1,"----------------",SX); setLocation(spot);
+        drumkitKick (1,1,    "x-----x---x-x---",SX); setLocation(spot);
+        drumkitSnare (1,1,   "--------x-------",SX); setLocation(spot);
+        drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
+        drumkitTom (1,1,     "----------------",SX); setLocation(spot);
+        drumkitTomLo (1,1,   "----------------",SX);
+
+        spot = getLocation();
+        //                    1-&-2-&-3-&-4-&-
+        drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+        drumkitHHOpen (1,1,  "----x-------x---",SX); setLocation(spot);
+        drumkitHHClosed (1,1,"----------------",SX); setLocation(spot);
+        drumkitKick (1,1,    "--x---xx--x-x---",SX); setLocation(spot);
+        drumkitSnare (1,1,   "--------x-------",SX); setLocation(spot);
+        drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
+        drumkitTom (1,1,     "----------------",SX); setLocation(spot);
+        drumkitTomLo (1,1,   "----------------",SX);
+
+        spot = getLocation();
+        //                    1-&-2-&-3-&-4-&-
+        drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+        drumkitHHOpen (1,1,  "----x-------x---",SX); setLocation(spot);
+        drumkitHHClosed (1,1,"----------------",SX); setLocation(spot);
+        drumkitKick (1,1,    "x-----x---x-x---",SX); setLocation(spot);
+        drumkitSnare (1,1,   "--------x-------",SX); setLocation(spot);
+        drumkitTomHi (1,1,   "----------------",SX); setLocation(spot);
+        drumkitTom (1,1,     "----------------",SX); setLocation(spot);
+        drumkitTomLo (1,1,   "----------------",SX);
+
+        if (i == 0) {
+
+            spot = getLocation();
+            //                    1-&-2-&-3-&-4-&-
+            drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+            drumkitHHOpen (1,1,  "----------------",SX); setLocation(spot);
+            drumkitHHClosed (1,1,"----------------",SX); setLocation(spot);
+            drumkitKick (1,1,    "--x-x-x---------",SX); setLocation(spot);
+            drumkitSnare (1,1,   "x---------x-----",SX); setLocation(spot);
+            drumkitTomHi (1,1,   "x-------x-------",SX); setLocation(spot);
+            drumkitTom (1,1,     "--------x---x---",SX); setLocation(spot);
+            drumkitTomLo (1,1,   "--------------x-",SX);
+
+        }
+
+        else {
+
+            spot = getLocation();
+            //                    1-&-2-&-3-&-4-&-
+            drumkitCrash(1,1,    "----------------",SX); setLocation(spot);
+            drumkitHHOpen (1,1,  "x---x-----------",SX); setLocation(spot);
+            drumkitHHClosed (1,1,"--x---x---------",SX); setLocation(spot);
+            drumkitKick (1,1,    "-x-x--x-x--x----",SX); setLocation(spot);
+            drumkitSnare (1,1,   "x---x----xx-x---",SX); setLocation(spot);
+            drumkitTomHi (1,1,   "-------------x--",SX); setLocation(spot);
+            drumkitTom (1,1,     "--------------x-",SX); setLocation(spot);
+            drumkitTomLo (1,1,   "---------------x",SX); 
+
+        }
+    }
+}
 

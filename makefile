@@ -1,6 +1,6 @@
 #Place the names of all your tracks here (as RRA filenames)
 
-RRA = chord.rra drums.rra
+RRA = guitar.rra drums.rra
 SRRA = stereo.rra
 INCLUDE=/usr/local/include/songlib/
 LIB=/usr/local/lib/
@@ -19,7 +19,7 @@ mix.rra		: $(RRA)
 play	: $(RRA)
 		rplay $(RRA)
 
-playmix : mix.rra
+mix : mix.rra
 		rplay mix.rra
 
 s-rpiano.rra : rpiano.rra

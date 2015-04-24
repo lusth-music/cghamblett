@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <songlib/util.h>
-#include <songlib/songlib.h>
+#include "/usr/local/include/songlib/util.h"
+#include "/usr/local/include/songlib/songlib.h"
 
 #define dir "/usr/local/share/samples/guitar-electric/"
 #define base "gibson_"
